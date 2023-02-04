@@ -2,12 +2,12 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
+	  google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Pac Man', 'Percentage'],
-          ['Body', 55],
+          ['Body', 75],
           ['Opening', 25]
         ]);
 
@@ -22,7 +22,8 @@
           }
         };
 
-        angle = 120;
+        
+        angle = 135;
         var chart = new google.visualization.PieChart(document.getElementById('pacman'));
         chart.draw(data, options);
         // initial value
@@ -34,7 +35,7 @@
             // apply new values
             data.setValue(0, 1, percent);
             data.setValue(1, 1, 101 - percent);
-            angle -= 1;
+            angle -= 1.65;
             options.pieStartAngle = angle;
             // update the pie
             chart.draw(data, options);
