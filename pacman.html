@@ -22,7 +22,7 @@
           }
         };
 
-        angle = 135;
+        angle = 120;
         var chart = new google.visualization.PieChart(document.getElementById('pacman'));
         chart.draw(data, options);
         // initial value
@@ -30,7 +30,7 @@
         // start the animation loop
         var handler = setInterval(function(){
             // values increment
-            percent += .65;
+            percent += 1;
             // apply new values
             data.setValue(0, 1, percent);
             data.setValue(1, 1, 101 - percent);
@@ -39,11 +39,11 @@
             // update the pie
             chart.draw(data, options);
             // check if we have reached the desired value
-            if (percent > 99)
+            if (percent > 99){
                 // stop the loop
                 clearInterval(handler);
-                
-        }, 30);
+            }
+        }, 5);
       }
     </script>
   </head>
