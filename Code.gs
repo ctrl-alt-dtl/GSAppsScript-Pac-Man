@@ -28,7 +28,7 @@ function pacman() {
       .evaluate()
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
       .setWidth(920)
-      .setHeight(550);
+      .setHeight(820);
   SpreadsheetApp.getUi().showModalDialog(ui, "Pac-Man");
 }
 

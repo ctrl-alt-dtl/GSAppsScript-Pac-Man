@@ -4,9 +4,10 @@
 
 html{
   background-color:#000;
-  border-bottom:solid 5px blue;
-  border-top:solid 5px blue;
+  border-bottom:solid 7px blue;
+  border-top:solid 7px blue;
   overflow-x:hidden;
+  top: 5px;
 }
 
 .feed {
@@ -20,6 +21,95 @@ border-radius: 30%;
 -webkit-animation: eat 1s linear 0s infinite;
 animation: eat 1s linear 0s infinite;
 } 
+
+.ghost {
+
+  width: 200px;
+  background: LightPink;
+  height: 200px;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  transform: translate(20px, -380px);
+  animation: move 5s infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+.float {
+  animation: float 0.4s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.eyes {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.eye {
+  background: white;
+  width: 50px;
+  height: 55px;
+  border-radius: 25px;
+}
+.pupil {
+  background: Indigo;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  transform: translate(20px, 10px);
+
+}
+
+
+.bottom {
+  position: absolute;
+  bottom: -38px;
+  left: 0;
+}
+
+.triangle {
+  position: absolute;
+  bottom: 0;
+  border-style: solid;
+}
+
+.triangle1 {
+  left: 0;
+  border-width: 40px 0 40px 40px;
+  border-color: transparent transparent transparent LightPink;
+}
+
+.triangle2 {
+  left: 40px;
+  border-width: 40px 30px 0 30px;
+  border-color: LightPink transparent transparent transparent;
+}
+
+.triangle3 {
+  left: 100px;
+  border-width: 40px 30px 0 30px;
+  border-color: LightPink transparent transparent transparent;
+}
+
+.triangle4 {
+  left: 160px;
+  border-width: 40px 40px 40px 0;
+  border-color: transparent LightPink transparent transparent;
+}
 
 @keyframes eat {
 	0% { box-shadow: 
