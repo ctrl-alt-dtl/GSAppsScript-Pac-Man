@@ -2,7 +2,7 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-	  google.charts.load("current", {packages:["corechart"]});
+      google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -22,11 +22,11 @@
           }
         };
 
-        
-        angle = 135;
         var chart = new google.visualization.PieChart(document.getElementById('pacman'));
         chart.draw(data, options);
-        // initial value
+        
+        // initial values
+        angle = 135;
         var percent = 75;
         // start the animation loop
         var handler = setInterval(function(){
@@ -43,8 +43,55 @@
             if (percent > 99){
                 // stop the loop
                 clearInterval(handler);
+                reverseDraw();
             }
         }, 5);
+        
+}
+
+      function reverseDraw(){
+
+        var data = google.visualization.arrayToDataTable([
+          ['Pac Man', 'Percentage'],
+          ['Body', 99],
+          ['Opening', 1]
+        ]);
+
+        var options = {
+          legend: 'none',
+          pieSliceText: 'none',
+          pieStartAngle: 135,
+          tooltip: { trigger: 'none' },
+          slices: {
+            0: { color: 'yellow' },
+            1: { color: 'transparent' }
+          }
+        };
+
+        
+        angle = 95;
+        var chart = new google.visualization.PieChart(document.getElementById('pacman'));
+        chart.draw(data, options);
+        // initial value
+        var percent = 10;
+        // start the animation loop
+        var handler = setInterval(function(){
+            // values increment
+            percent += 1;
+            // apply new values
+            data.setValue(0, 1, 800 - percent);
+            data.setValue(1, 1, percent);
+            angle += .25;
+            options.pieStartAngle = angle;
+            // update the pie
+            chart.draw(data, options);
+            // check if we have reached the desired value
+            if (percent > 200){
+                // stop the loop
+                clearInterval(handler);
+                drawChart();
+            }
+        }, 1);
       }
     </script>
   </head>
