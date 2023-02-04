@@ -27,8 +27,8 @@ function pacman() {
   var ui = HtmlService.createTemplateFromFile('pacman')
       .evaluate()
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
-      .setWidth(1000)
-      .setHeight(600);
+      .setWidth(920)
+      .setHeight(550);
   SpreadsheetApp.getUi().showModalDialog(ui, "Pac-Man");
 }
 

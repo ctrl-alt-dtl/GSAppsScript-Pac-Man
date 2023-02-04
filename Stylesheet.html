@@ -1,1 +1,27 @@
 <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+
+<style>
+&__food {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #FFF;
+    border-radius: 50%;
+    top: 40%;
+    left: 120px;
+    animation-name: food;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+   }
+
+@keyframes food {
+  0% { 
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50px);
+  opacity: 0;
+  }
+}
+</style>
