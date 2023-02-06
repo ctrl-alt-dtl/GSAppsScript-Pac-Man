@@ -7,6 +7,7 @@ function onOpen(e) {
   SpreadsheetApp.getUi()
       .createAddonMenu()
       .addItem('Pac-Man', 'pacman')
+      .addItem('Pitfall', 'pitfall')
       .addToUi();
 }
 
@@ -21,15 +22,27 @@ function onInstall(e) {
 }
 
 /**
- * Opens a dialog for a visualization.
+ * Opens a dialog for a PacMan visualization.
  */
 function pacman() {
   var ui = HtmlService.createTemplateFromFile('pacman')
       .evaluate()
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
-      .setWidth(920)
-      .setHeight(820);
+      .setWidth(940)
+      .setHeight(720);
   SpreadsheetApp.getUi().showModalDialog(ui, "Pac-Man");
+}
+
+/**
+ * Opens a dialog for a PacMan visualization.
+ */
+function pitfall() {
+  var ui = HtmlService.createTemplateFromFile('pitfall')
+      .evaluate()
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+      .setWidth(920)
+      .setHeight(800);
+  SpreadsheetApp.getUi().showModalDialog(ui, "Pitfall");
 }
 
 /**
